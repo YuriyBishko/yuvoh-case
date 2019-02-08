@@ -22,7 +22,14 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/manifest.json",
+              "src/offline.html",
+              "src/sw-register.js",
+              "src/sw.js"
+            ],
             "styles": ["src/styles.scss"],
             "scripts": [],
             "es5BrowserSupport": true
@@ -44,6 +51,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "serviceWorker": true,
+              "ngswConfigPath": "src/ngsw-config.json",
               "budgets": [
                 {
                   "type": "initial",

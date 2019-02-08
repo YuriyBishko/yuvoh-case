@@ -30,7 +30,6 @@ export class ListComponent implements OnInit {
   initSubscribers() {
     this.postService.data.subscribe(items => {
       if (items) {
-        console.log(items);
         this.items = items["items"];
         this.total = items["total_count"];
       }
