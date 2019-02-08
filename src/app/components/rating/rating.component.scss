@@ -1,0 +1,21 @@
+@import "../../../variables.scss";
+
+.rating {
+  display: flex;
+  width: 100%;
+  font-size: 0.688rem;
+  &-star {
+    margin-right: 10px;
+  }
+  & span {
+    margin-left: 3px;
+    color: $grey;
+  }
+  & .fa {
+    color: $yellow;
+  }
+  & svg {
+    fill: $grey-dark;
+    margin-top: -3px;
+  }
+}

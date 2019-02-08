@@ -1,0 +1,100 @@
+<ul id="placeholder" class="list-group card-placeholder" *ngIf="!loaded">
+  <li *ngFor="let i of counter(per_page)" class="list-group_item">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <a
+          href="#"
+          rel="noopener"
+          title="placeholder"
+          mat-card-avatar
+          class="content-placeholder"
+        >
+          <span
+            mat-card-avatar
+            class="example-header-image content-placeholder"
+            alt="palceholder"
+          ></span
+        ></a>
+        <mat-card-title class="content-placeholder"
+          ><a href="#" class="content-placeholder" rel="noopener" title=""></a
+        ></mat-card-title>
+        <mat-card-subtitle
+          ><button class="language content-placeholder"></button
+        ></mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p class="content-placeholder"></p>
+        <p class="content-placeholder"></p>
+      </mat-card-content>
+      <!-- <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+    </mat-card>
+  </li>
+</ul>
+<ul id="list" class="list-group" *ngIf="loaded">
+  <li
+    *ngFor="
+      let item of (items
+        | paginate: { itemsPerPage: 8, currentPage: page, totalItems: total })
+    "
+    class="list-group_item"
+  >
+    <mat-card class="example-card">
+      <mat-card-header>
+        <a
+          href="{{ item.owner.html_url }}"
+          rel="noopener"
+          target="_blank"
+          title="{{ item.owner.login }}"
+          mat-card-avatar
+        >
+          <img
+            mat-card-avatar
+            class="example-header-image"
+            src="{{ item.owner.avatar_url }}"
+            alt="{{ item.owner.login }}"
+        /></a>
+        <mat-card-title
+          ><a
+            href="{{ item.owner.html_url }}"
+            rel="noopener"
+            target="_blank"
+            title="{{ item.owner.login }}"
+            class="mat-headline"
+            >{{ item.owner.login }}</a
+          ></mat-card-title
+        >
+        <mat-card-subtitle
+          ><button class="language" (click)="search(item.language)">
+            {{ item.language }}
+          </button>
+          <app-rating
+            [rating]="item.stargazers_count"
+            [forks]="item.forks_count"
+          ></app-rating
+        ></mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p class="mat-body-1">
+          {{ item.description }}
+        </p>
+      </mat-card-content>
+      <!-- <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions> -->
+    </mat-card>
+  </li>
+</ul>
+<pagination-controls
+  class="pagination"
+  (pageChange)="onPageChange($event)"
+  maxSize="9"
+  responsive="true"
+  autoHide="true"
+>
+</pagination-controls>

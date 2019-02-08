@@ -1,0 +1,16 @@
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2979ff;
+  color: #fff;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  & .form-control {
+    max-width: 250px;
+  }
+}
