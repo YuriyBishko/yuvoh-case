@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
         page: 1,
         per_page: this.postService.per_page
       };
-      let query = searchTextValue.replace(/ /g, "+");
+      let query = searchTextValue.replace(/ /g, "+"); //replace space with special character, due documentation prefernces
       this.postService.getList(params, query).subscribe();
     });
   }
